@@ -1,3 +1,9 @@
 <h1>
   {{title}}
 </h1>
+
+<p-slider [(ngModel)]="sliderValue"></p-slider>
+  <span style="color: #FFFFFF;">{{sliderValue}}</span>
+
+  <button pButton type="button" (click)="onClickPower()" label="Power"></button>
+  <span style="color: #FFFFFF;">{{power}}</span>
