@@ -20,7 +20,7 @@
     "electron": "electron .",
     "pack": "build --dir",
     "dist": "build",
-    "dist-pi": "build --platform=linux --arch=armv7l -d"
+    "dist-pi": "build --platform=linux --armv7l"
   },
   "private": true,
   "dependencies": {
