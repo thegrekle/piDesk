@@ -2,7 +2,14 @@
   "name": "pi-desk",
   "version": "0.0.0",
   "license": "MIT",
+  "author": "Christopher Gray",
   "main": "main.js",
+  "build": {
+    "appId": "piDesk",
+    "linux": {
+      "target": "AppImage"
+    }
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,7 +17,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build": "ng build --base-href /$ROOT/piDesk/dist/",
-    "electron": "electron ."
+    "electron": "electron .",
+    "pack": "build --dir",
+    "dist": "build",
+    "dist-linux": "build --linux"
   },
   "private": true,
   "dependencies": {
@@ -33,6 +43,7 @@
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
     "codelyzer": "~2.0.0",
+    "electron": "^1.6.2",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
     "karma": "~1.4.1",
