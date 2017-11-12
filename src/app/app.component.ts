@@ -1,10 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { $WebSocket, WebSocketSendMode, WebSocketConfig } from 'angular2-websocket/angular2-websocket';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'app works!';
+export class AppComponent implements OnInit {
+  volume: Number = 50;
+  power: boolean = false;
+  mute: boolean = false;
+  ws: $WebSocket;
+
+  ngOnInit(): void {
+    this.ws = new $WebSocket("ws://deskpi:8080");
+    
+  }
+
+  onMute() {
+    this.mute = !this.mute;
+    this.ws.send("muteToggle", WebSocketSendMode.Direct);
+  }
+
+  onPower() {
+    this.power = !this.power;
+    this.ws.send("powerToggle", WebSocketSendMode.Direct);
+  }
+
+  onVolumeChange() {
+    console.log(`volumeChange: ${this.volume}`);
+    this.ws.send(`setVolume:${this.volume}`, WebSocketSendMode.Direct);
+  }
 }
