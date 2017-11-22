@@ -1,0 +1,74 @@
+@import "../../slider.css";
+
+.container {
+  height: 100vh;
+  background-color: #181818;
+  overflow: hidden;
+}
+  .audio-controls {
+      float: right;
+      height: 100vh;
+      display:flex;
+      flex-direction: column;
+  }
+
+  button, button:focus{
+    border: none;
+    background: none;
+    padding: 8px 0px;
+    outline: -webkit-focus-ring-color none;
+  }
+
+  button.block {
+      display: block;
+  }
+
+  .iframe-seamless {
+      border: 0;
+      width:100%; 
+      padding:0; 
+      border:0; 
+      height:100vh;
+      z-index: 1024;
+  }
+
+  .material-icons {
+      color: #fff;
+      font-size: 2.5em;
+  }
+  
+  .muteOff {
+      color: #ddd6cb;
+      text-shadow: 0 0 2px #ddd6cb;
+  }
+
+  .muteOn {
+    color: #777;
+  }
+
+  .powerOff {
+    color: #777;
+  }
+  .powerOn {
+    text-shadow: 0 0 4px #00c2ff;
+    color: #00c2ff;
+  }
+
+  .rotate {      
+    transform:rotate(-90deg);
+  }
+
+  .spotify-controls {
+      overflow: hidden;
+      z-index: 1024;
+  }
+
+  .volume-slider {
+    flex:1;
+    z-index: 0;
+  }
+
+  .volumeWrapper {
+      height: 100%;
+      padding-top: 180px;
+  }

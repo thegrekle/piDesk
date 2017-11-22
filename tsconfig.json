@@ -8,7 +8,17 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "allowJs": false,
     "target": "es5",
+    "paths": {
+      "environments": [
+        "./environments"
+      ]
+    },
+    "types": [
+      "node",
+      "jasmine"
+    ],
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -16,5 +26,8 @@
       "es2016",
       "dom"
     ]
-  }
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }

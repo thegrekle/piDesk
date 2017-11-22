@@ -1,34 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { $WebSocket, WebSocketSendMode, WebSocketConfig } from 'angular2-websocket/angular2-websocket';
+import { Component } from '@angular/core';
+import { ElectronService } from './providers/electron.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  volume: Number = 50;
-  power: boolean = false;
-  mute: boolean = false;
-  ws: $WebSocket;
+export class AppComponent {
+  constructor(public electronService: ElectronService) {
 
-  ngOnInit(): void {
-    this.ws = new $WebSocket("ws://deskpi:8080");
-    
-  }
-
-  onMute() {
-    this.mute = !this.mute;
-    this.ws.send("muteToggle", WebSocketSendMode.Direct);
-  }
-
-  onPower() {
-    this.power = !this.power;
-    this.ws.send("powerToggle", WebSocketSendMode.Direct);
-  }
-
-  onVolumeChange() {
-    console.log(`volumeChange: ${this.volume}`);
-    this.ws.send(`setVolume:${this.volume}`, WebSocketSendMode.Direct);
+    if (electronService.isElectron()) {
+      console.log('Mode electron');
+      // Check if electron is correctly injected (see externals in webpack.config.js)
+      console.log('c', electronService.ipcRenderer);
+      // Check if nodeJs childProcess is correctly injected (see externals in webpack.config.js)
+      console.log('c', electronService.childProcess);
+    } else {
+      console.log('Mode web');
+    }
   }
 }

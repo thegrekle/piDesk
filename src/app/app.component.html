@@ -1,16 +1,1 @@
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <main class="mdl-layout__content">
-    <div class="audio-controls">
-      <button class="mdl-button mdl-js-button mdl-js-ripple-effect block" (click)="onPower()">
-        <i class="material-icons" [style.color]="power ? '#2ED72A' : '#9A0000'">power_settings_new</i>
-      </button>
-      <input class="vertical-slider" type="range" min="0" max="257" [(ngModel)]="volume" (ngModelChange)="onVolumeChange()">
-      <button class="mdl-button mdl-js-button mdl-js-ripple-effect block" (click)="onMute()">
-        <i class="material-icons" >{{mute ? "volume_off" : "volume_up"}}</i>
-      </button>
-    </div>
-    <div class="spotify-controls">
-      <iframe src="http://deskpi:6680/iris" class="iframe-seamless"></iframe>
-    </div>
-  </main>
-</div>
+<router-outlet></router-outlet>
