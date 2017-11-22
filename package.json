@@ -1,19 +1,11 @@
 {
-  "name": "angular-electron",
-  "version": "2.1.0",
-  "description": "Angular 5 with Electron (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
+  "name": "piDesk",
+  "version": "0.1",
+  "description": "Desktop music player",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "Christopher Gray",
+    "email": "cmgray@graymattersoft.com"
   },
-  "keywords": [
-    "angular",
-    "angular 5",
-    "electron",
-    "typescript",
-    "sass"
-  ],
   "main": "main.js",
   "private": true,
   "scripts": {
@@ -105,5 +97,5 @@
     "webpack": "3.8.1",
     "webpack-dev-server": "2.8.2"
   },
-  "license": "SEE LICENSE IN LICENSE.md"
+  "license": "0BSD"
 }

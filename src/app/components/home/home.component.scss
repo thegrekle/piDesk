@@ -6,7 +6,7 @@
   overflow: hidden;
 }
   .audio-controls {
-      float: right;
+      float: left;
       height: 100vh;
       display:flex;
       flex-direction: column;
@@ -37,6 +37,12 @@
       font-size: 2.5em;
   }
   
+  .muteButton, .muteButton:focus{
+    background-color: #3E3E3E;
+    width: 100%;
+    height: 50px; 
+  }
+
   .muteOff {
       color: #ddd6cb;
       text-shadow: 0 0 2px #ddd6cb;
