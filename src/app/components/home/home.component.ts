@@ -7,7 +7,7 @@ import { $WebSocket, WebSocketSendMode, WebSocketConfig } from 'angular2-websock
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  volume: Number = 50;
+  volume: Number = 0;
   power: boolean = false;
   mute: boolean = false;
   ws: $WebSocket;
@@ -17,6 +17,24 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.ws = new $WebSocket("ws://deskpi:8080");
 
+    this.ws.onMessage(
+      (msg: MessageEvent) => {
+        console.log("onMessage ", msg.data);
+        if(msg.data.startsWith('volumeSet')) {
+          console.log("showing volume as ", msg.data.split(':')[1]);
+          this.volume = msg.data.split(':')[1];
+        }
+        if(msg.data.startsWith('powerState')) {
+          console.log("showing power as ", msg.data.split(':')[1]);
+          this.power = (msg.data.split(':')[1] == 'true');
+        }
+        if(msg.data.startsWith('muteState')) {
+          console.log("showing mute as ", msg.data.split(':')[1]);
+          this.mute = (msg.data.split(':')[1] == 'true');
+        }
+      },
+      { autoApply: false }
+    );
   }
 
   onMute() {
