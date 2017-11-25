@@ -1,5 +1,3 @@
-@import "../../slider.css";
-
 .container {
   height: 100vh;
   background-color: #181818;
@@ -69,12 +67,24 @@
       z-index: 1024;
   }
 
-  .volume-slider {
+  .volumeSlider {
     flex:1;
     z-index: 0;
+    height: 80vh;
+  }
+
+  .mat-slider-thumb-label {
+    left: 10px !important;
+  } 
+  
+  .mat-slider-thumb-label-text {
+    transform: rotate(-135deg) !important;
+  } 
+  
+  .mat-slider:not(.mat-slider-disabled).cdk-focused .mat-slider-thumb-label {    
+    transform: rotate(135deg) !important;
   }
 
   .volumeWrapper {
       height: 100%;
-      padding-top: 180px;
   }

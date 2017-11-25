@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { $WebSocket, WebSocketSendMode, WebSocketConfig } from 'angular2-websocket/angular2-websocket';
+import { MatSliderModule } from '@angular/material';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class HomeComponent implements OnInit {
   volume: Number = 0;
@@ -19,9 +21,9 @@ export class HomeComponent implements OnInit {
 
     this.ws.onMessage(
       (msg: MessageEvent) => {
-        console.log("onMessage ", msg.data);
+        //console.log("onMessage ", msg.data);
         if(msg.data.startsWith('volumeSet')) {
-          console.log("showing volume as ", msg.data.split(':')[1]);
+          //console.log("showing volume as ", msg.data.split(':')[1]);
           this.volume = msg.data.split(':')[1];
         }
         if(msg.data.startsWith('powerState')) {
